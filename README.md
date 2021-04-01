@@ -52,11 +52,11 @@ POST http://127.0.0.1:8000/api/v1/logout
 POST http://127.0.0.1:8000/api/v1/user
 ````
 ````
-GET https://127.0.0.1:8000/api/vi/profiles
-GET https://127.0.0.1:8000/api/vi/profiles?is_favorite=
+GET https://127.0.0.1:8000/api/v1/profiles
+GET https://127.0.0.1:8000/api/v1/profiles?is_favorite=
 ````
 ````
-GET https://127.0.0.1:8000/api/vi/profile/search/{username}
+GET https://127.0.0.1:8000/api/v1/profile/search/{username}
 ````
 
 
