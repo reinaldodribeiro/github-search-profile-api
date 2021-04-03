@@ -22,10 +22,11 @@ Route::prefix('v1')->group(function () {
 
     Route::namespace('User')->group(function (){
         Route::apiResource('user', 'UserController')->only('store');
+        Route::middleware('auth:api')->apiResource('user', 'UserController')->only('show');
     });
 
     Route::middleware('auth:api')->namespace('GitHub')->group(function() {
-        Route::apiResource('profiles', "ProfileGitHubController")->only('index');
+        Route::apiResource('profiles', "ProfileGitHubController")->only('index', 'update');
         Route::get('profile/search/{username}', 'ProfileGitHubController@searchProfile');
     });
 

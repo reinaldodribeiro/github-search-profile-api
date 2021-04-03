@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService extends CrudService
 {
+    public function search($params = [], $id)
+    {
+        return parent::search([], auth()->user()->getAuthIdentifier());
+    }
 
     protected function getRules($data, $saving, $model)
     {

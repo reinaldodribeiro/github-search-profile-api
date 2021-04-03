@@ -43,11 +43,11 @@ class ProfileGitHubService extends CrudService
             ->join('profiles_github as pg', 'us.id_profile_github', '=', 'pg.id')
             ->where('us.id_user', auth()->user()->getAuthIdentifier())
             ->select('pg.*');
-
         if(Arr::has($params, 'is_favorite')){
             $query->where('pg.is_favorite', Arr::get($params, 'is_favorite'));
         }
-        return $query->paginate(10);
+        return $query->orderBy('pg.created_at', 'DESC')
+            ->paginate(intval(Arr::get($params, 'per_page', 10)));
     }
 
     protected function postSave($model, $data)
